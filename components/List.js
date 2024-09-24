@@ -4,7 +4,12 @@ import { useAtom } from "jotai";
 import TodoItem from "./TodoItem";
 
 function List() {
-  const [datas] = useAtom(datasAtom);
+  const [datas, setDatas] = useAtom(datasAtom);
+
+  const handleDelete = (id) => {
+    const nextDatas = datas.filter((data) => data.id != id);
+    setDatas(nextDatas);
+  };
 
   return (
     <div className={styles.List}>
@@ -14,7 +19,7 @@ function List() {
       <ul className={styles.todos_wrapper}>
         {datas.map((data) => (
           <li key={data.id}>
-            <TodoItem data={data} />
+            <TodoItem data={data} onDelete={handleDelete} />
           </li>
         ))}
       </ul>
