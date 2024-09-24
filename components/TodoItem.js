@@ -1,13 +1,17 @@
 import styles from "./TodoItem.module.css";
 
-function TodoItem({ data, onDelete }) {
+function TodoItem({ data, onUpdate, onDelete }) {
   const handleDelete = () => {
     onDelete(data.id);
   };
 
+  const handleUpdate = () => {
+    onUpdate(data.id);
+  };
+
   return (
     <div className={styles.Todoitem}>
-      <input type="checkbox" />
+      <input type="checkbox" checked={data.isDone} onClick={handleUpdate} />
       <div className={styles.content}>{data.content}</div>
       <div className={styles.date}>
         {new Date(data.date).toLocaleDateString()}
