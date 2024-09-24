@@ -1,0 +1,7 @@
+.Header {
+  margin-bottom: 48px;
+}
+
+.Header > h1 {
+  color: rgb(37, 147, 255);
+}
