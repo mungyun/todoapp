@@ -1,16 +1,14 @@
 import styles from "./TodoItem.module.css";
 
-function TodoItem() {
+function TodoItem({ data }) {
   return (
     <div className={styles.Todoitem}>
-      <input
-        onChange={onChangeCheckbox}
-        checked={item.isDone}
-        type="checkbox"
-      />
-      <div className="content">{item.content}</div>
-      <div className="date">{new Date(item.date).toLocaleDateString()}</div>
-      <button onClick={deleteClick}>삭제</button>
+      <input checked={data.isDone} type="checkbox" />
+      <div className={styles.content}>{data.content}</div>
+      <div className={styles.date}>
+        {new Date(data.date).toLocaleDateString()}
+      </div>
+      <button>삭제</button>
     </div>
   );
 }
